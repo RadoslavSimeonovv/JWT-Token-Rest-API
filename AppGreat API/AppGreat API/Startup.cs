@@ -66,9 +66,7 @@ namespace AppGreat_API
             .AllowAnyMethod()
             .AllowAnyHeader());
 
-            app.UseMiddleware<JwtMiddleware>();
-
-          
+            app.UseMiddleware<JwtMiddleware>();    
 
             app.UseEndpoints(endpoints =>
             {

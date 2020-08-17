@@ -8,6 +8,7 @@ using System.Text;
 
 namespace AppGreat.Services.Helpers
 {
+    //Not authorized access if user is not logged in and tries to make a request that requires authorization
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class AuthorizeAttribute : Attribute, IAuthorizationFilter
     {

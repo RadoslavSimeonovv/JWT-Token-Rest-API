@@ -25,7 +25,12 @@ namespace AppGreat_API.Controllers
             this.userService = userService;
         }
 
-        [Authorize]
+
+        /*
+        * Retrieve all product from the database
+        * by using the appropriate service method
+        * http://localhost:5000/api/products/ - request URL
+        */
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetAllProducts()
@@ -37,7 +42,13 @@ namespace AppGreat_API.Controllers
 
             return Ok(productsVM);
         }
-        // GET: api/Product/5
+
+
+        /*
+        * Retrieve a product from the database
+        * by id by using the appropriate service method
+        * http://localhost:5000/api/products/id - request URL
+        */
         [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> GetProduct(int id)
@@ -54,7 +65,11 @@ namespace AppGreat_API.Controllers
             }
         }
 
-        // POST: api/Product
+        /*
+        * Create a new product  
+        * by using the appropriate service method
+        * http://localhost:5000/api/products/ - request URL
+        */
         [HttpPost]
         [Route("")]
         public async Task<IActionResult> CreateProduct([FromBody] ProductViewModel productVM)
@@ -72,7 +87,11 @@ namespace AppGreat_API.Controllers
             }
         }
 
-        // DELETE: api/ApiWithActions/5
+        /*
+       * Delete an existing product
+       * by using the appropriate service method
+       * http://localhost:5000/api/products/id - request URL
+       */
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> Delete(int id)

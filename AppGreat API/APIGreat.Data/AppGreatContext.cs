@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace APIGreat.Data
 {
+    //Context class with all Data tables and configuration register
     public class AppGreatContext : DbContext
     {
         public AppGreatContext(DbContextOptions<AppGreatContext> options) 

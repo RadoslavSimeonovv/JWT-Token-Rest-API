@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AppGreat.Data.Configuration
 {
+    //Order table configuration
     public class OrderConfig : IEntityTypeConfiguration<Order>
     {
         public void Configure(EntityTypeBuilder<Order> builder)

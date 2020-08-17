@@ -22,6 +22,11 @@ namespace AppGreat_API.Controllers
             this._userService = userService;
         }
 
+        /*
+       * Login user
+       * by using the appropriate service method
+       * http://localhost:5000/api/users/login - request URL
+       */
         [HttpPost("login")]
         public IActionResult Authenticate(AuthenticateRequest model)
         {
@@ -34,7 +39,11 @@ namespace AppGreat_API.Controllers
             return Ok(response);
         }
 
-        [Authorize]
+        /*
+         * Retrieve all users
+         * by using the appropriate service method
+         * http://localhost:5000/api/users/ - request URL
+         */
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -42,16 +51,19 @@ namespace AppGreat_API.Controllers
             return Ok(users);
         }
 
-        [HttpPost]
-        [Route("")]
+        /*
+        * Register a new user
+        * by using the appropriate service method
+        * http://localhost:5000/api/users/register - request URL
+        */
+        [HttpPost("register")]
         public async Task<IActionResult> RegisterUser([FromBody] UserViewModel userVM)
         {
             try
             {
                 var userDTO = userVM.MapUserVMToDTO();
                 var user = await _userService.RegisterUser(userDTO);
-
-        
+   
                 return Created("Post", user);
             }
             catch (Exception)

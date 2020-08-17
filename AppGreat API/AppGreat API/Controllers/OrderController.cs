@@ -23,6 +23,14 @@ namespace AppGreat_API.Controllers
             this.orderService = orderService;  
         }
 
+
+        /*
+         * Get all user orders
+         * by using the appropriate service method
+         * and then we use the external api to
+         * return the correct currency to the user
+         * http://localhost:5000/api/orders/ - request URL
+         */
         [Authorize]
         [HttpGet]
         [Route("")]
@@ -43,6 +51,14 @@ namespace AppGreat_API.Controllers
             return Ok(userOrdersVM);
         }
 
+
+        /*
+       * Create a new user order
+       * by using the appropriate service method
+       * and then we use the external api to
+       * return the correct currency to the user
+       * http://localhost:5000/api/orders/ - request URL
+       */
         [Authorize]
         [HttpPost]
         [Route("")]
@@ -62,6 +78,11 @@ namespace AppGreat_API.Controllers
             }
         }
 
+        /*
+         * Change order status
+         * by using the appropriate service method
+         * http://localhost:5000/api/orders/id - request URL
+         */
         [Authorize]
         [HttpPut]
         [Route("{id}")]

@@ -1,4 +1,5 @@
-﻿public enum StatusEnum
+﻿//Status enum
+public enum StatusEnum
 {
     New,
     Payment,

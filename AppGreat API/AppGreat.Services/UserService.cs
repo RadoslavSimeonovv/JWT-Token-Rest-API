@@ -27,6 +27,10 @@ namespace AppGreat.Services
             _appSettings = appSettings.Value;
         }
 
+        /*
+         * Authenticate the user, login and generate the JWT token from the helper method
+        */
+
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
             var user =  _appGreatContext.Users.SingleOrDefault(x => x.Username == model.Username && x.Password == model.Password);
@@ -40,11 +44,18 @@ namespace AppGreat.Services
             return new AuthenticateResponse(user, token);
         }
 
+        /*
+       * Get all users method
+        */
         public IEnumerable<User> GetAll()
         {
            return _appGreatContext.Users
                .ToList();
         }
+
+        /*
+         * Get user by id method used by the JWT middleware
+        */
 
         public User GetById(int id)
         {
@@ -52,6 +63,9 @@ namespace AppGreat.Services
                 .FirstOrDefault(x => x.Id == id);
         }
 
+        /*
+         * Generate a JWT Toekn after a successful login by the user
+        */
         private string generateJwtToken(User user)
         {
             // generate token that is valid for 7 days
@@ -67,7 +81,9 @@ namespace AppGreat.Services
             return tokenHandler.WriteToken(token);
         }
 
-
+        /*
+       * Register new user by name, password and currency code
+       */
         public async Task<UserDTO> RegisterUser(UserDTO userDTO)
         {
             if (userDTO == null)

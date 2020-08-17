@@ -8,6 +8,13 @@ namespace AppGreat_API.Helpers
 {
     public static class ExchangeRatesAPI
     {
+
+        /*
+         * Static method to make a call to the external API
+         * so we can get the exchange rates of the user and 
+         * return the correct currency depending on his currency code.
+         * We do the call using the HTTP library
+         */
         public static double ExchangeRate(string currencyCode)
         {
             using var client = new HttpClient();

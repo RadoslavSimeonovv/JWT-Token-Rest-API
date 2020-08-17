@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace AppGreat.Services.Helpers
 {
+    //JWT Middleware
     public class JwtMiddleware
     {
         private readonly RequestDelegate _next;

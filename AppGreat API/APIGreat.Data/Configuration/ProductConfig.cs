@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AppGreat.Data.Configuration
 {
+    //Product table configuration
     public class ProductConfig : IEntityTypeConfiguration<Product>
     {
         public void Configure(EntityTypeBuilder<Product> builder)

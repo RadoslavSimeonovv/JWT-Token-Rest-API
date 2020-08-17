@@ -6,6 +6,7 @@ using System.Text;
 
 namespace AppGreat.Data.Seeder
 {
+    //Mock seeder
     public static class AppGreatSeeder
     {
         public static void SeedDatabase(ModelBuilder modelBuilder)

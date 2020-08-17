@@ -17,6 +17,12 @@ namespace AppGreat.Services
         {
             this._appGreatContext = appGreatContext;
         }
+
+        /*
+         * Create product method
+         * We create the product through the request body
+         * adding the name, price and imageURL.
+         */
         public async Task<ProductDTO> CreateProduct(ProductDTO productDTO)
         {
             if (productDTO == null)
@@ -31,6 +37,13 @@ namespace AppGreat.Services
 
             return productDTO;
         }
+
+       /*
+       * Delete product by ID method
+       * Delete a product from the table
+       * The deletion is by making a DeletedOn property
+       * of the product equal to the current date.
+       */
 
         public async Task<bool> DeleteProduct(int id)
         {
@@ -48,6 +61,10 @@ namespace AppGreat.Services
             return true;
         }
 
+        /*
+        * Retrieve and return all products from the database which are not deleted
+        */
+
         public async Task<IEnumerable<ProductDTO>> GetAllProducts()
         {
             var productsDTO = await _appGreatContext.Products
@@ -58,6 +75,10 @@ namespace AppGreat.Services
             return productsDTO;
         }
 
+
+        /*
+        * Retrieve and return a product by ID
+        */
         public async Task<ProductDTO> GetProduct(int id)
         {
             var product = await _appGreatContext.Products
